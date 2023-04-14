@@ -1,8 +1,7 @@
 use std::{fs, env, io, process};
-use std::error::Error;
 
 fn run(file_path: &String) -> Result<(), io::Error>{
-    todo!("file_path = {}", file_path);
+    Err(io::Error::new(io::ErrorKind::Other, "Not implemented"))
 }
 
 fn repl() {
@@ -11,10 +10,10 @@ fn repl() {
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-
-    if args.len() > 1 {
+    println!("args = {:?}", args);
+    if args.len() > 2 {
         println!("Usage: loxrs <script>")
-    } else if args.len() == 1 {
+    } else if args.len() == 2 {
         run(&args[0]).unwrap_or_else(|e| {
             eprintln!("Problem running: {e}");
             process::exit(1)
